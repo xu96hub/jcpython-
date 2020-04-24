@@ -1,0 +1,46 @@
+文件（file）I/O
+  操作步骤：
+	（1）打开文件 
+	（2）读写操作
+	（3）保存操作
+	（4）关闭文件
+
+File_obj=open（file_name） 只要不报错就是打开了
+File_obj.read()
+File_obj.close()
+
+with open(file_name) as file_obj:
+	#此时这个对象只能在with进行结束自动关闭
+	
+使用open打开的文件：
+	二进制文件纯文本文件（utf-8编写的文本文件）[默认是文本文件，但是默认编码为none]{处理文本文件必须制定文本编码}
+	
+	读取大文件的方式
+	创建循环读取文件内容
+	
+	chunk=100
+	while ture：
+		content=file_Obj.read(chunk)
+		if not content:
+			break
+		print(content,end="")
+		file.content+=content
+		
+	readlines() 每一行依次读取并封装在一个列表中
+	
+	write中 r表示只读 w写入文件，不存在文件时会创建文件，存在文件会覆盖文件 a表示追加内容 x用来新建文件，存在则报错，防止文件覆盖
+	 +表示增加功能
+	r+ a+ w+ 。。。
+	
+	主要操作方式是文本文件，二进制文件基本上是读取然后写出
+	
+	读取文件的位置
+	seek（）修改当前读取的位置
+	tell（）告诉当前读取的位置
+	
+	文件的其他操作
+	os.listdir(path="")获取指定路径下的路径结构，默认路径为当前路径
+	os.getcwd（）获得当前所在目录
+	os.chdir（）切换目录
+	os.mkdir()
+	os.rmdir()
